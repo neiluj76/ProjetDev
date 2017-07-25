@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>getMeAnswers : connexion</title>
+    <title>getMeAnswers : informations</title>
 	<meta charset="utf-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap-theme.css" />
@@ -12,7 +12,7 @@
     <div class="container-fluid">
         
         <div class="container">
-          <!--  <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -40,6 +40,7 @@
                                     <li><a href="#">One more separated link</a></li>
                                 </ul>
                             </li>
+                            <li><a href="#">Bonjour <?php echo $_SESSION['prenom']. ' '.  $_SESSION['alexis']; ?></a></li>
                         </ul>
 
                         
@@ -52,7 +53,7 @@
                         </form>
                     </div>
                 </div>
-            </nav> -->
+            </nav>
            <!-- <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">@</span>
                 <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
@@ -175,17 +176,16 @@
                                 console.log("yes");
                                 console.log(data);
                                 //$("#problem").appendData(data)
-                                //window.location.href = "info.php";
-                                //$("#form")[0].reset();
-                                /*     $("#sucess").removeClass("hide");
+                                $("#form")[0].reset();
+                                $("#sucess").removeClass("hide");
                                 setTimeout(
                                     function()
                                     {
                                         $("#sucess").addClass("hide");
                                     }, 5000);
-                                $("#sucess").addClass("hide");*/
+                                $("#sucess").addClass("hide");
                             }
-                         /*   else
+                            else
                             {
                                 $("#problem").removeClass("hide");
                                 setTimeout(
@@ -193,7 +193,7 @@
                                     {
                                         $("#problem").addClass("hide");
                                     }, 5000);
-                            } */
+                            }
                         }
                     });
 

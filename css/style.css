@@ -1,0 +1,42 @@
+﻿body {
+}
+
+.red
+{
+    background-color: red;
+}
+
+.article-x
+{
+    background-color: #f8f8f8;
+    border-color: white;
+    border-width: 1px;
+    margin-bottom: 40px;
+}
+
+.article-x:hover
+{
+    background-color: #e0e0e0;
+}
+
+.article-x .row
+{
+    padding: 10px;
+    margin : 0px 5px 5px 5px;
+}
+
+
+.element-footer
+{
+    background-color: slategrey;
+}
+
+
+footer
+{
+    text-align: center;
+    background-color: #2a2730;
+    padding: 0px 0px 0px 0px;
+    background-color: darkgrey;
+}
+
