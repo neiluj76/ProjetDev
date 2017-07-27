@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -12,52 +16,10 @@
     <div class="container-fluid">
         
         <div class="container">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">getMeAnswers</a>
-                    </div>
+            <?php
 
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Articles <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">ToDo</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Click me! <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">One more separated link</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Bonjour <?php echo $_SESSION['prenom']. ' '.  $_SESSION['alexis']; ?></a></li>
-                        </ul>
-
-                        
-
-                        <form class="navbar-form navbar-right">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Rechercher">
-                            </div>
-                            <button type="submit" class="btn btn-default">Rechercher</button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-           <!-- <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">@</span>
-                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-            </div> -->
+            include_once 'include/navbar.php';
+            ?>
 
             <div class="row  m-b-40">
                 <div class="col-md-3 col-md-push-9">
@@ -68,72 +30,10 @@
                   <div class="well white">
                     <form class="form-floating form">
                       <fieldset>
-                        <legend>Connexion nécessaire</legend>
-                        <span class="help-block">Merci de compléter les informations.</span>
-                        <div class="form-group">
-                          <label  class="control-label">Identifiants</label>
-                          <input type="text" class="form-control" id="ID" name="ID">
-                        </div>
-
-                        <div class="form-group">
-                            <label  class="control-label">Mot de passe</label>
-                            <input type="text" class="form-control" id="mdp" name="mdp">
-                        </div>
-
-                <!-- <div class="form-group">
-                          <label for="inputPassword" class="control-label">Password</label>
-                          <input type="password" class="form-control" id="inputPassword">
-                        </div> 
-
-                        <div class="form-group">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> Are you a winner?
-                            </label>
-                          </div>
-                        </div>-->
-
-                       <!-- <div class="form-group">
-                          <label for="textArea" class="control-label">Textarea</label>
-                          <textarea class="form-control vertical" rows="3" id="textArea"></textarea>
-                          <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-                        </div> -->
+                        <legend>Acceuil</legend>
+                        <span class="help-block">A compléter.</span>
 
 
-                           <!--
-                        <div class="form-group">
-                          <label class="control-label normal">Radio buttons</label>
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                              Option one is this
-                            </label>
-                          </div>
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                              Option two can be something else
-                            </label>
-                          </div>
-                        </div>
-
-                       <div class="form-group">
-                          <label class="control-label normal">Switches</label>
-                          <div class="switch">
-                            <label>
-                              Off
-                              <input type="checkbox">
-                              <span class="lever"></span>
-                              On
-                            </label>
-                          </div>
-                        </div> -->
-
-
-                        <div class="form-group">
-                          <button type="submit" class="clikToConnect btn btn-primary">Connexion</button>
-                          <button type="reset" class="clikToConnect btn btn-default">Annuler</button>
-                        </div>
 
                       </fieldset>
                     </form>

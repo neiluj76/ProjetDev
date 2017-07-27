@@ -45,10 +45,10 @@ function connexionUserOld($data)
 
 
     $mysqli->real_query("SELECT * FROM `utilisateurs` WHERE login = '.$id.' and mdp = '.$mdp.'");
-    echo "SELECT * FROM `utilisateurs` WHERE login = '".$id."' and mdp = '".$mdp."'";
+    //echo "SELECT * FROM `utilisateurs` WHERE login = '".$id."' and mdp = '".$mdp."'";
     $res = $mysqli->use_result();
-    var_dump($res);
-    var_dump($mysqli);
+    //var_dump($res);
+    //var_dump($mysqli);
     $resultat = $res->fetch_array();
     var_dump($resultat);
     $fin = [];
@@ -75,7 +75,6 @@ connexionUser($data);
 
 function connexionUser($data)
 {
-    session_start();
     $id = $data['params']['id'];
     $mdp = $data['params']['mdp'];
     $mysqli = connexion();
@@ -87,14 +86,21 @@ function connexionUser($data)
                     //printf("%s\n", $row[0]);
                     //var_dump($row);
                     $_SESSION['id'] = $row[0];
-                    echo "nom : ". $_SESSION['nom'];
+
                     $_SESSION['mdp'] = $row[1];
                     $_SESSION['nom'] = $row[2];
                     $_SESSION['prenom'] = $row[3];
+
+                    echo "nom : ". $_SESSION['nom'];
+
                     echo json_encode($row);
                 }
                 $result->close();
         }
+    }
+    else
+    {
+        echo json_encode("");
     }
 
     /* Fermeture de la connexion */
