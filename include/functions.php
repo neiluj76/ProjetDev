@@ -13,7 +13,7 @@ if (isset($_REQUEST['fonction']) && $_REQUEST['fonction'] != '')
 function connexion()
 {
 
-    $mysqli = new mysqli("localhost", "admin", "AzertY!59000", "getmeanswers");
+    $mysqli = new mysqli("localhost", "root", "pass", "getmeanswers");
     if ($mysqli->connect_errno) {
         echo "Echec lors de la connexion � MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
