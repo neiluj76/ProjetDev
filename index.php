@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -58,7 +62,7 @@
                 <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
             </div> -->
 
-            <div class="row  m-b-40">
+            <div class="row  m-b-40" id="connexion">
                 <div class="col-md-3 col-md-push-9">
                   <h5> . </h5>
                   <p></p>
@@ -76,69 +80,115 @@
 
                         <div class="form-group">
                             <label  class="control-label">Mot de passe</label>
-                            <input type="text" class="form-control" id="mdp" name="mdp">
+                            <input type="password" class="form-control" id="mdp" name="mdp">
                         </div>
-
-                <!-- <div class="form-group">
-                          <label for="inputPassword" class="control-label">Password</label>
-                          <input type="password" class="form-control" id="inputPassword">
-                        </div> 
-
-                        <div class="form-group">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> Are you a winner?
-                            </label>
-                          </div>
-                        </div>-->
-
-                       <!-- <div class="form-group">
-                          <label for="textArea" class="control-label">Textarea</label>
-                          <textarea class="form-control vertical" rows="3" id="textArea"></textarea>
-                          <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-                        </div> -->
-
-
-                           <!--
-                        <div class="form-group">
-                          <label class="control-label normal">Radio buttons</label>
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                              Option one is this
-                            </label>
-                          </div>
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                              Option two can be something else
-                            </label>
-                          </div>
-                        </div>
-
-                       <div class="form-group">
-                          <label class="control-label normal">Switches</label>
-                          <div class="switch">
-                            <label>
-                              Off
-                              <input type="checkbox">
-                              <span class="lever"></span>
-                              On
-                            </label>
-                          </div>
-                        </div> -->
-
 
                         <div class="form-group">
                           <button type="submit" class="clikToConnect btn btn-primary">Connexion</button>
-                          <button type="reset" class="clikToConnect btn btn-default">Annuler</button>
+                          <button type="reset" class=" btn btn-default">Annuler</button>
                         </div>
+
+                          <div class="form-group">
+                              <button type="submit" class="clikToSubscribe btn btn-primary">Inscription</button>
+                          </div>
 
                       </fieldset>
                     </form>
                   </div>
                 </div>
               </div>
+
+            <div class="row  m-b-40 hide" id="subscribe">
+                <div class="col-md-3 col-md-push-9">
+                    <h5> . </h5>
+                    <p></p>
+                </div>
+                <div class="col-md-12">
+                    <div class="well white">
+                        <form class="form-floating form">
+                            <fieldset>
+                                <legend>Informations nécessaire</legend>
+                                <span class="help-block">Merci de compléter les informations.</span>
+                                <div class="form-group">
+                                    <label  class="control-label">Nom </label>
+                                    <input type="text" class="form-control" id="nom" name="nom">
+                                </div>
+
+                                <div class="form-group">
+                                    <label  class="control-label">Prenom </label>
+                                    <input type="text" class="form-control" id="prenom" name="prenom">
+                                </div>
+
+                                <div class="form-group">
+                                    <label  class="control-label">login</label>
+                                    <input type="text" class="form-control" id="loginSub" name="loginSub">
+                                </div>
+
+                                <div class="form-group">
+                                    <label  class="control-label">Mot de passe</label>
+                                    <input type="password" class="form-control" id="mdpSub" name="mdpSub">
+                                </div>
+
+                                <!-- <div class="form-group">
+                                          <label for="inputPassword" class="control-label">Password</label>
+                                          <input type="password" class="form-control" id="inputPassword">
+                                        </div>
+
+                                        <div class="form-group">
+                                          <div class="checkbox">
+                                            <label>
+                                              <input type="checkbox"> Are you a winner?
+                                            </label>
+                                          </div>
+                                        </div>-->
+
+                                <!-- <div class="form-group">
+                                   <label for="textArea" class="control-label">Textarea</label>
+                                   <textarea class="form-control vertical" rows="3" id="textArea"></textarea>
+                                   <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                                 </div> -->
+
+
+                                <!--
+                             <div class="form-group">
+                               <label class="control-label normal">Radio buttons</label>
+                               <div class="radio">
+                                 <label>
+                                   <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                   Option one is this
+                                 </label>
+                               </div>
+                               <div class="radio">
+                                 <label>
+                                   <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                   Option two can be something else
+                                 </label>
+                               </div>
+                             </div>
+
+                            <div class="form-group">
+                               <label class="control-label normal">Switches</label>
+                               <div class="switch">
+                                 <label>
+                                   Off
+                                   <input type="checkbox">
+                                   <span class="lever"></span>
+                                   On
+                                 </label>
+                               </div>
+                             </div> -->
+
+
+                                <div class="form-group">
+                                    <button type="submit" class="clikToSubscribe2 btn btn-primary">S'inscrire</button>
+                                    <button type="reset" class=" btn btn-default">Annuler</button>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
             
         </div>
 
@@ -171,7 +221,7 @@
                         },
                         success: function(data)
                         {
-                            if (data !=  false) {
+                            if (data !=  "") {
                                 console.log("yes");
                                 console.log(data);
                                 //$("#problem").appendData(data)
@@ -198,6 +248,41 @@
                     });
 
                 })
+            })
+
+
+            $(".clikToSubscribe").click(function() {
+
+                $("#subscribe").removeClass("hide"); //on révéle le bloc caché
+                $("#connexion").addClass("hide"); //on cache le bloc de connexion
+            })
+
+
+            $(".clikToSubscribe2").click(function() {
+                var mdpSub   = $("#mdpSub").val();
+                var nom  = $("#nom").val();
+                var prenom  = $("#prenom").val();
+                var login  = $("#loginSub").val();
+
+                $.ajax({
+                    url: 'include/functions.php',
+                    type:'POST',
+                    data: {
+                        fonction:'inscriptionUser',
+                        params: {mdpSub : mdpSub, nom : nom, prenom : prenom, login : login}
+                    },
+                    success: function(data)
+                    {
+                        if (data !=  "") {
+                            console.log("yes");
+                            console.log(data);
+                            //$("#problem").appendData(data)
+                            window.location.href = "info.php";
+
+                        }
+                    }
+                });
+
             })
 
             function wait(ms){

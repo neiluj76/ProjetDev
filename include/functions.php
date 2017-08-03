@@ -63,18 +63,19 @@ function connexionUserOld($data)
 
 }
 
-
+/*
 $data = [];
 $data2 = [];
 $data2['id'] = "alexis";
 $data2['mdp'] = "alexis";
 $data['params'] = $data2;
 
-connexionUser($data);
+connexionUser($data); */
 
 
 function connexionUser($data)
 {
+    session_start();
     $id = $data['params']['id'];
     $mdp = $data['params']['mdp'];
     $mysqli = connexion();
@@ -89,8 +90,8 @@ function connexionUser($data)
 
                     $_SESSION['mdp'] = $row[1];
                     $_SESSION['nom'] = $row[2];
-                    $_SESSION['prenom'] = $row[3];
-
+                    $_SESSION['prenom'] = $row[4];
+                    $_SESSION['rang'] = $row[10];
                     echo "nom : ". $_SESSION['nom'];
 
                     echo json_encode($row);
@@ -105,4 +106,69 @@ function connexionUser($data)
 
     /* Fermeture de la connexion */
     $mysqli->close();
+}
+
+
+function inscriptionUser($data)
+{
+    session_start();
+    $nom = $data['params']['nom'];
+    $prenom = $data['params']['prenom'];
+    $login = $data['params']['login'];
+    $mdp = $data['params']['mdpSub'];
+    $mysqli = connexion();
+    //$query = "SELECT * FROM `utilisateurs` WHERE login = '".$id."' and mdp = '".$mdp."'";
+    $query = "INSERT INTO `utilisateurs` (`id`, `login`, `mdp`, `nom`,`prenom`, `nombrejeton`, `dateconnexion`, `dateinscription`, `datenaissance`, `listeamis`, `rang`, `lieux`) VALUES (NULL, '".$login."', '".$mdp."','".$nom."','".$prenom."', '10', NULL, NULL, NULL, NULL, '0', NULL);";
+    if ($mysqli->multi_query($query)) {
+        echo json_encode(true);
+
+
+        $_SESSION['mdp'] = $mdp;
+        $_SESSION['nom'] = $nom;
+        $_SESSION['prenom'] = $prenom;
+        $_SESSION['rang'] = 2;
+        /* Stockage du premier jeu de résultats */
+       /* if ($result = $mysqli->use_result()) {
+            while ($row = $result->fetch_row()) {
+                //printf("%s\n", $row[0]);
+                //var_dump($row);
+                $_SESSION['id'] = $row[0];
+
+                $_SESSION['mdp'] = $row[1];
+                $_SESSION['nom'] = $row[2];
+                $_SESSION['prenom'] = $row[4];
+
+                echo "nom : ". $_SESSION['nom'];
+
+                //echo json_encode($row);
+
+            }
+            $result->close();
+        }*/
+    }
+    else
+    {
+        echo json_encode("");
+    }
+
+    /* Fermeture de la connexion */
+    $mysqli->close();
+}
+
+function deconnexionUser($data)
+{
+    // Note : cela détruira la session et pas seulement les données de session !
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+
+    // Finalement, on détruit la session.
+    session_destroy();
+
+   echo json_encode(null);
+
 }

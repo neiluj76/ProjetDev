@@ -46,7 +46,7 @@ session_start();
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-
+        <script type="text/javascript" src="js/custom.js"></script>
         <script>
             $(window).load(function(){
                 $(".clikToConnect").click(function() {

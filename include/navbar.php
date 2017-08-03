@@ -1,6 +1,5 @@
 <?php
 
-
 ?>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -31,6 +30,7 @@
                     </ul>
                 </li>
                 <li><a href="#">Bonjour <?php echo $_SESSION['prenom']. ' '.  $_SESSION['nom']; ?></a></li>
+                <li><a href="#" class="deconnexion">Deconnexion</a></li>
             </ul>
 
 
