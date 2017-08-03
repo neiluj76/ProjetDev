@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 25 Juillet 2017 à 12:34
+-- Généré le :  Jeu 03 Août 2017 à 14:46
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -31,6 +31,7 @@ CREATE TABLE `utilisateurs` (
   `login` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
+  `prenom` text NOT NULL,
   `nombrejeton` int(11) DEFAULT NULL,
   `dateconnexion` datetime DEFAULT NULL,
   `dateinscription` datetime DEFAULT NULL,
@@ -44,9 +45,10 @@ CREATE TABLE `utilisateurs` (
 -- Contenu de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `login`, `mdp`, `nom`, `nombrejeton`, `dateconnexion`, `dateinscription`, `datenaissance`, `listeamis`, `rang`, `lieux`) VALUES
-(9, 'alexis', 'alexis', 'alexis', 42, '2017-07-25 00:00:00', '2017-07-24 05:12:00', '1994-12-31 00:00:00', NULL, NULL, 'France'),
-(42, 'julien', 'julien', 'julien', 42, '2017-07-25 00:00:00', '2017-07-24 05:12:00', '1994-12-31 00:00:00', NULL, NULL, 'France');
+INSERT INTO `utilisateurs` (`id`, `login`, `mdp`, `nom`, `prenom`, `nombrejeton`, `dateconnexion`, `dateinscription`, `datenaissance`, `listeamis`, `rang`, `lieux`) VALUES
+(9, 'alexis', 'alexis', 'alexis', 'alexis', 42, '2017-07-25 00:00:00', '2017-07-24 05:12:00', '1994-12-31 00:00:00', NULL, NULL, 'France'),
+(42, 'julien', 'julien', 'julien', 'julien', 42, '2017-07-25 00:00:00', '2017-07-24 05:12:00', '1994-12-31 00:00:00', NULL, NULL, 'France'),
+(43, 'test', 'test123', 'testeur', 'test', 10, NULL, NULL, NULL, NULL, '0', 'France');
 
 --
 -- Index pour les tables exportées
@@ -67,7 +69,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
