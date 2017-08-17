@@ -15,9 +15,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Articles <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">ToDo</a></li>
-                <li class="dropdown">
+                <li class="active"><a href="#">Acceuil <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Cours</a></li>
+              <!--  <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Click me! <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Action</a></li>
@@ -28,9 +28,15 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="#">One more separated link</a></li>
                     </ul>
+                </li> -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonjour <?php echo $_SESSION['prenom']. ' '.  $_SESSION['nom']; ?><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="compte.php">Votre compte</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" class="deconnexion">Deconnexion</a></li>
+                    </ul>
                 </li>
-                <li><a href="#">Bonjour <?php echo $_SESSION['prenom']. ' '.  $_SESSION['nom']; ?></a></li>
-                <li><a href="#" class="deconnexion">Deconnexion</a></li>
             </ul>
 
 

@@ -6,7 +6,7 @@
 
 if (isset($_REQUEST['fonction']) && $_REQUEST['fonction'] != '')
 {
-    $_REQUEST['fonction']($_REQUEST);
+	$_REQUEST['fonction']($_REQUEST);
 }
 
 
@@ -59,8 +59,20 @@ function connexionUserOld($data)
         echo $fin;
         var_dump($fin);
     }
+
+
 }
 
+//addUser();
+
+/*
+$data = [];
+$data2 = [];
+$data2['id'] = "alexis";
+$data2['mdp'] = "alexis";
+$data['params'] = $data2;
+
+connexionUser($data); */
 
 
 function connexionUser($data)
@@ -71,39 +83,47 @@ function connexionUser($data)
     $mysqli = connexion();
     $query = "SELECT * FROM `utilisateurs` WHERE login = '".$id."' and mdp = '".$mdp."'";
     if ($mysqli->multi_query($query)) {
-        /* Stockage du premier jeu de résultats */
-        if ($result = $mysqli->use_result()) {
+            /* Stockage du premier jeu de résultats */
+            if ($result = $mysqli->use_result()) {
 
-            //echo json_encode($result);
-            while ($row = $result->fetch_row()) {
-                //printf("%s\n", $row[0]);
-                //var_dump($row);
-                $_SESSION['id'] = $row[0];
+                echo json_encode($result);
+                while ($row = $result->fetch_row()) {
+                    //printf("%s\n", $row[0]);
+                    //var_dump($row);
+                    $_SESSION['id'] = $row[0];
 
-                $_SESSION['mdp'] = $row[1];
-                $_SESSION['nom'] = $row[2];
-                $_SESSION['prenom'] = $row[4];
-                $_SESSION['rang'] = $row[10];
-                $_SESSION['lieux'] = $row[11];
-                if($_SESSION['lieux'] == null)
-                {
-                    $_SESSION['lieux'] = "";
+                    $_SESSION['mdp'] = $row[1];
+                    $_SESSION['nom'] = $row[2];
+                    $_SESSION['prenom'] = $row[4];
+                    $_SESSION['rang'] = $row[10];
+                    $_SESSION['lieux'] = $row[11];
+                    if($_SESSION['lieux'] == null)
+                    {
+                        $_SESSION['lieux'] = "";
+                    }
+
+                    //$today = date("Y-m-d H:i:s");
+
+                    //$id = $mysqli->real_escape_string($_SESSION['id']);
+                    //echo json_encode($today. "  ");
+
+                    //$statut = $mysqli->real_query("UPDATE `utilisateurs` SET `dateconnexion` = now() WHERE `utilisateurs`.`id` = '".$id."'");
+
+                   // echo "nom : ". $_SESSION['nom'];
+
+                    echo json_encode("ok");
                 }
+                $result->close();
+                $statut = $mysqli->query("UPDATE `utilisateurs` SET `dateconnexion` = now() WHERE `utilisateurs`.`id` = ".$_SESSION['id']." ");
 
+                //echo json_encode($_SESSION['id']);
 
-                echo json_encode(true);
+                //echo json_encode($statut);
+        }
+            else
+            {
+                echo json_encode("");
             }
-            $result->close();
-            $statut = $mysqli->query("UPDATE `utilisateurs` SET `dateconnexion` = now() WHERE `utilisateurs`.`id` = ".$_SESSION['id']." ");
-
-            //echo json_encode($_SESSION['id']);
-
-            //echo json_encode($statut);
-        }
-        else
-        {
-            echo json_encode("");
-        }
     }
     else
     {
@@ -128,33 +148,51 @@ function inscriptionUser($data)
     if ($mysqli->multi_query($query)) {
 
         $query2 = "SELECT * FROM `utilisateurs` WHERE login = '" . $login . "' and mdp = '" . $mdp . "'";
-        if ($mysqli->mys($query2)) {
+        if ($mysqli->multi_query($query2)) {
             /* Stockage du premier jeu de résultats */
             if ($result = $mysqli->use_result()) {
                 while ($row = $result->fetch_row()) {
                     //printf("%s\n", $row[0]);
                     //var_dump($row);
-                    try
-                    {
-                        $_SESSION['id'] = $row[0];
+                    $_SESSION['id'] = $row[0];
 
-                        $_SESSION['mdp'] = $row[1];
-                        $_SESSION['nom'] = $row[2];
-                        $_SESSION['prenom'] = $row[4];
-                        $_SESSION['rang'] = $row[10];
-                        $_SESSION['lieux'] = $row[11];
-                        if ($_SESSION['lieux'] == null) {
-                            $_SESSION['lieux'] = "";
-                        }
-                        echo json_encode(true);
+                    $_SESSION['mdp'] = $row[1];
+                    $_SESSION['nom'] = $row[2];
+                    $_SESSION['prenom'] = $row[4];
+                    $_SESSION['rang'] = $row[10];
+                    $_SESSION['lieux'] = $row[11];
+                    if ($_SESSION['lieux'] == null) {
+                        $_SESSION['lieux'] = "";
                     }
-
-                    catch ( mysqli_sql_exception $ex)
-                    {
-                        echo json_encode("");
-                    }
+                    echo json_encode(true);
                 }
 
+                /*
+
+                        $_SESSION['mdp'] = $mdp;
+                        $_SESSION['nom'] = $nom;
+                        $_SESSION['prenom'] = $prenom;
+                        $_SESSION['rang'] = 2; */
+
+
+                /* Stockage du premier jeu de résultats */
+                /* if ($result = $mysqli->use_result()) {
+                     while ($row = $result->fetch_row()) {
+                         //printf("%s\n", $row[0]);
+                         //var_dump($row);
+                         $_SESSION['id'] = $row[0];
+
+                         $_SESSION['mdp'] = $row[1];
+                         $_SESSION['nom'] = $row[2];
+                         $_SESSION['prenom'] = $row[4];
+
+                         echo "nom : ". $_SESSION['nom'];
+
+                         //echo json_encode($row);
+
+                     }
+                     $result->close();
+                 }*/
             } else {
                 echo json_encode("");
             }
@@ -179,7 +217,7 @@ function deconnexionUser($data)
     // Finalement, on détruit la session.
     session_destroy();
 
-    echo json_encode(null);
+   echo json_encode(null);
 
 }
 

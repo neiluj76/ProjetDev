@@ -63,15 +63,13 @@ session_start();
             </div> -->
 
             <div class="row  m-b-40" id="connexion">
-                <div class="col-md-3 col-md-push-9">
-                  <h5> . </h5>
-                  <p></p>
-                </div>
+
                 <div class="col-md-12">
                   <div class="well white">
                     <form class="form-floating form">
                       <fieldset>
                         <legend>Connexion nécessaire</legend>
+                          <div class="alert alert-danger hide" role="alert" id="problem">Identifiants/mot de passe invalide</div>
                         <span class="help-block">Merci de compléter les informations.</span>
                         <div class="form-group">
                           <label  class="control-label">Identifiants</label>
@@ -221,7 +219,7 @@ session_start();
                         },
                         success: function(data)
                         {
-                            if (data !=  "") {
+                            if (data == "true") {
                                 console.log("yes");
                                 console.log(data);
                                 //$("#problem").appendData(data)
@@ -235,15 +233,15 @@ session_start();
                                     }, 5000);
                                 $("#sucess").addClass("hide");*/
                             }
-                         /*   else
+                            else
                             {
                                 $("#problem").removeClass("hide");
                                 setTimeout(
                                     function()
                                     {
                                         $("#problem").addClass("hide");
-                                    }, 5000);
-                            } */
+                                    }, 10000);
+                            }
                         }
                     });
 
@@ -273,7 +271,7 @@ session_start();
                     },
                     success: function(data)
                     {
-                        if (data !=  "") {
+                        if (data == "true") {
                             console.log("yes");
                             console.log(data);
                             //$("#problem").appendData(data)
